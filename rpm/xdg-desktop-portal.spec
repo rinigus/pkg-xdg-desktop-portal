@@ -38,7 +38,7 @@ The pkg-config file for %{name}.
 
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}/xdg-desktop-portal
 
 %build
 %configure --disable-docbook-docs --disable-libportal --disable-pipewire --disable-geoclue
@@ -53,7 +53,6 @@ install -pm 644 README.md %{buildroot}/%{_pkgdocdir}
 install -dm 755 %{buildroot}/%{_datadir}/%{name}/portals
 
 %find_lang %{name}
-
 
 %files -f %{name}.lang
 %doc %{_pkgdocdir}
