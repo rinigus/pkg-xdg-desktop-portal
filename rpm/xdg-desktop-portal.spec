@@ -22,7 +22,7 @@ Requires:      dbus
 # Required version for icon validator.
 Recommends:    flatpak >= 1.2.0
 # Required for the document portal.
-Requires:      /usr/bin/fusermount
+Requires:      fuse
 
 %description
 xdg-desktop-portal works by exposing a series of D-Bus interfaces known as
