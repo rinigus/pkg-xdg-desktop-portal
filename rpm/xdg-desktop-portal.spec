@@ -1,7 +1,7 @@
 %global pipewire_version 0.2.6
 
 Name:    xdg-desktop-portal
-Version: 1.6.0
+Version: 1.4.2
 Release: 1%{?dist}
 Summary: Portal frontend service to flatpak
 
@@ -10,6 +10,7 @@ URL:     https://github.com/flatpak/xdg-desktop-portal/
 Source0: https://github.com/flatpak/xdg-desktop-portal/releases/download/%{version}/%{name}-%{version}.tar.xz
 
 BuildRequires: gcc
+BuildRequires: autoconf automake libtool
 BuildRequires: pkgconfig(flatpak)
 BuildRequires: pkgconfig(fontconfig)
 BuildRequires: pkgconfig(fuse)
@@ -41,7 +42,15 @@ The pkg-config file for %{name}.
 %setup -q -n %{name}-%{version}/xdg-desktop-portal
 
 %build
-%configure --disable-docbook-docs --disable-libportal --disable-pipewire --disable-geoclue
+env NOCONFIGURE=1 ./autogen.sh
+CFLAGS="$CFLAGS -std=c11"
+%configure --disable-docbook-docs \
+           --disable-libportal \
+           --disable-pipewire \
+           --disable-geoclue \
+           --disable-coverage \
+           --disable-installed-tests \
+           --disable-always-build-tests
 %make_build
 
 
