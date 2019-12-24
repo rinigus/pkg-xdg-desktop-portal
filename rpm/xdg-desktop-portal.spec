@@ -55,18 +55,6 @@ install -dm 755 %{buildroot}/%{_datadir}/%{name}/portals
 %find_lang %{name}
 
 
-%post
-%systemd_user_post %{name}.service
-%systemd_user_post xdg-document-portal.service
-%systemd_user_post xdg-permission-store.service
-
-
-%preun
-%systemd_user_preun %{name}.service
-%systemd_user_preun xdg-document-portal.service
-%systemd_user_preun xdg-permission-store.service
-
-
 %files -f %{name}.lang
 %doc %{_pkgdocdir}
 %license COPYING
