@@ -10,7 +10,7 @@ URL:     https://github.com/flatpak/xdg-desktop-portal/
 Source0: https://github.com/flatpak/xdg-desktop-portal/releases/download/%{version}/%{name}-%{version}.tar.xz
 
 BuildRequires: gcc
-BuildRequires: autoconf automake libtool
+BuildRequires: autoconf automake libtool gettext
 BuildRequires: pkgconfig(flatpak)
 BuildRequires: pkgconfig(fontconfig)
 BuildRequires: pkgconfig(fuse)
