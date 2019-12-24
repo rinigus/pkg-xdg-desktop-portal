@@ -1,5 +1,4 @@
 %global pipewire_version 0.2.6
-%global geoclue_version 2.5.2
 
 Name:    xdg-desktop-portal
 Version: 1.6.0
@@ -16,17 +15,11 @@ BuildRequires: pkgconfig(fontconfig)
 BuildRequires: pkgconfig(fuse)
 BuildRequires: pkgconfig(gio-unix-2.0)
 BuildRequires: pkgconfig(json-glib-1.0)
-BuildRequires: pkgconfig(libgeoclue-2.0) >= %{geoclue_version}
-BuildRequires: pkgconfig(libpipewire-0.2) >= %{pipewire_version}
-BuildRequires: /usr/bin/xmlto
 %{?systemd_requires}
 BuildRequires: systemd
 Requires:      dbus
 # Required version for icon validator.
 Recommends:    flatpak >= 1.2.0
-Requires:      geoclue2 >= %{geoclue_version}
-Recommends:    pipewire >= %{pipewire_version}
-Requires:      pipewire-libs >= %{pipewire_version}
 # Required for the document portal.
 Requires:      /usr/bin/fusermount
 
@@ -48,7 +41,7 @@ The pkg-config file for %{name}.
 %setup -q
 
 %build
-%configure --enable-docbook-docs --disable-libportal
+%configure --disable-docbook-docs --disable-libportal --disable-pipewire --disable-geoclue
 %make_build
 
 
