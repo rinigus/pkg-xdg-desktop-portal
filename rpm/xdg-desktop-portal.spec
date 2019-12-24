@@ -15,8 +15,6 @@ BuildRequires: pkgconfig(fontconfig)
 BuildRequires: pkgconfig(fuse)
 BuildRequires: pkgconfig(gio-unix-2.0)
 BuildRequires: pkgconfig(json-glib-1.0)
-# Break cycle: we buildrequire flatpak, and flatpak has a requires on xdg-desktop-portal
-!BuildIgnore:  xdg-desktop-portal
 %{?systemd_requires}
 BuildRequires: systemd
 Requires:      dbus
