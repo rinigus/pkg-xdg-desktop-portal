@@ -47,15 +47,13 @@ The pkg-config file for %{name}.
 
 %install
 %make_install
-install -dm 755 %{buildroot}/%{_pkgdocdir}
-install -pm 644 README.md %{buildroot}/%{_pkgdocdir}
 # This directory is used by implementations such as xdg-desktop-portal-gtk.
 install -dm 755 %{buildroot}/%{_datadir}/%{name}/portals
 
 %find_lang %{name}
 
 %files -f %{name}.lang
-%doc %{_pkgdocdir}
+%doc README.md
 %license COPYING
 %{_datadir}/dbus-1/interfaces/org.freedesktop.portal.*.xml
 %{_datadir}/dbus-1/interfaces/org.freedesktop.impl.portal.*.xml
